@@ -46,5 +46,21 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+.header {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  height: 60px;
+}
+
+#headerText {
+  font-weight: bolder;
+  font-size: 25px;
+  margin: 10px;
+}
+
+#headerIcon {
+  margin-left: 10px;
+}
 </style>

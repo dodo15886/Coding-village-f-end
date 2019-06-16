@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import MainApp from './MainApp.vue'
 import Index from './Index.vue'
+import Consult from './consult.vue'
+import SignUp from './signUp.vue'
 import Python from './components/pythonDetail.vue'
 import CPlusPlus from './components/cPlusPlusDetail.vue'
 import Web from './components/webDetail.vue'
@@ -17,6 +19,8 @@ Vue.use(VueRouter);
 
 const routes = [
   { path: '/Index', name: 'index', component: Index },
+  { path: '/Consult', name: 'consult', component: Consult},
+  { path: '/SignUp', name: 'signUp', component: SignUp},
   { path: '/Python', name: 'python', component: Python },
   { path: '/CPlusPlus', name: 'cPlusPlus', component: CPlusPlus },
   { path: '/Web', name: 'web', component: Web },

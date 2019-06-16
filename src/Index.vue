@@ -27,7 +27,7 @@
 
       <div class="contentHead">
         <div class="divider"></div>
-        <div class="contentHeadText">{{stateList[0]}}</div>
+        <div class="contentHeadText">Python村：熟悉程式語言</div>
       </div>
 
       <div class="content">
@@ -44,7 +44,7 @@
     <div class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
-        <div class="contentHeadText">{{stateList[1]}}</div>
+        <div class="contentHeadText">C++村：成為頂尖高手必備絕技</div>
       </div>
 
       <div class="content">
@@ -61,7 +61,7 @@
     <div class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
-        <div class="contentHeadText">{{stateList[2]}}</div>
+        <div class="contentHeadText">Web村：做出一個屬於自己的網頁</div>
       </div>
 
       <div class="content">
@@ -78,7 +78,7 @@
     <div class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
-        <div class="contentHeadText">{{stateList[3]}}</div>
+        <div class="contentHeadText">APP村：寫APP發大財</div>
       </div>
 
       <div class="content">
@@ -95,7 +95,7 @@
     <div class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
-        <div class="contentHeadText">{{stateList[4]}}</div>
+        <div class="contentHeadText">演算法村：資工系在等著你</div>
       </div>
 
       <div class="content">
@@ -154,7 +154,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .header {
   /* border: 1px solid red; */
   display: flex;
@@ -205,7 +205,7 @@ export default {
   /* display: flex; */
   position: relative;
   /* border: 1px solid red; */
-  height: 500px;
+  height: 600px;
 }
 
 .contentHead {
@@ -236,7 +236,7 @@ export default {
   position: relative;
   left: 250px;
   top: 100px;
-  height: 400px;
+  height: 500px;
   width: 2000px;
 }
 
