@@ -1,6 +1,6 @@
 <template>
     <div>
-        演算法課程！
+        apcs課程！
     </div>
 </template>
 

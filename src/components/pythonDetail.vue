@@ -14,12 +14,12 @@
     </div>
     <div class="btnStruc">
       <Button class="btn" @click="toConsult" type="primary" size="large">免費諮詢</Button>
-      <Button class="btn" @click="toSignUp" type="primary" size="large">立即報名</Button>
+      <Button class="btn" to="https://www.iviewui.com/" target="_blank" type="primary" size="large">立即報名</Button>
     </div>
   </div>
 </template>
 
-<script>
+<script scoped>
 export default {
   methods: {
     toConsult() {
@@ -28,11 +28,11 @@ export default {
       });
     },
 
-    toSignUp() {
-      this.$router.push({
-        name: "signUp"
-      });
-    }
+    // toSignUp() {
+    //   this.$router.push({
+    //     name: "signUp"
+    //   });
+    // }
   },
   mounted() {}
 };

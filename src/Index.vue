@@ -3,12 +3,12 @@
     <div class="guidePage">
       <div class="guideBtnStruc">
         <Button @click="changeState(560)" type="primary" size="large">新手</Button>
-        <Button @click="changeState(1560)" type="primary" size="large">有點經驗</Button>
-        <Button  @click="changeState(3060)" type="primary" size="large">Coding大師</Button>
+        <Button @click="changeState(1760)" type="primary" size="large">有點經驗</Button>
+        <Button  @click="changeState(2960)" type="primary" size="large">Coding大師</Button>
       </div>
       <div class="people">
-        <img id="peopleIcon" src="@/assets/people.png" width="180px" height="210px">
-        <div style="font-size:20px">你是...</div>
+        <img id="peopleIcon" src="@/assets/lost.png" width="180px" height="210px">
+        <div style="font-size:25px;margin-top:15px">你是...</div>
       </div>
     </div>
 
@@ -31,7 +31,7 @@
       </div>
 
       <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior.png" width="250px" height="250px">
+        <img id="warriorIcon" src="@/assets/warrior1.png" width="250px" height="250px">
         <div class="warriorContent">
           <p>角色：初級邏輯勇者</p>
           <p>適合對象：12歲以上，想嘗試寫寫看程式者。</p>
@@ -48,7 +48,7 @@
       </div>
 
       <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior.png" width="250px" height="250px">
+        <img id="warriorIcon" src="@/assets/warrior2.png" width="250px" height="250px">
         <div class="warriorContent">
           <p>角色：次級邏輯勇者</p>
           <p>適合對象：15歲以上，將來想往理工科系發展者。</p>
@@ -65,7 +65,7 @@
       </div>
 
       <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior.png" width="250px" height="250px">
+        <img id="warriorIcon" src="@/assets/warrior3.png" width="250px" height="250px">
         <div class="warriorContent">
           <p>角色：應用邏輯勇者</p>
           <p>適合對象：12歲以上，想嘗試應用程式者。</p>
@@ -82,7 +82,7 @@
       </div>
 
       <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior.png" width="250px" height="250px">
+        <img id="warriorIcon" src="@/assets/warrior4.png" width="250px" height="250px">
         <div class="warriorContent">
           <p>角色：應用邏輯勇者</p>
           <p>適合對象：12歲以上，想嘗試應用程式者。</p>
@@ -95,17 +95,17 @@
     <div class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
-        <div class="contentHeadText">演算法村：資工系在等著你</div>
+        <div class="contentHeadText">APCS村：資工系在等著你</div>
       </div>
 
       <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior.png" width="250px" height="250px">
+        <img id="warriorIcon" src="@/assets/warrior5.png" width="250px" height="250px">
         <div class="warriorContent">
           <p>角色：邏輯超勇者</p>
           <p>適合對象：15歲以上，對一個以上程式語言精熟者。</p>
           <p>訓練內容：資料結構 + 演算法</p>
         </div>
-        <Button class="interestBtn" @click="showDetail('algo')" type="primary" size="large">我有興趣！</Button>
+        <Button class="interestBtn" @click="showDetail('apcs')" type="primary" size="large">我有興趣！</Button>
       </div>
     </div>
   </div>
@@ -126,15 +126,15 @@ export default {
     window.addEventListener('scroll',function(){
       let top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
       //要做兼容，在模拟器能正常获取scrolltop在微信h5页面和手机的浏览器页面一直为0
-      if (top < 1060) {
+      if (top < 1160) {
         vm.curState = 0;
-      } else if (top < 1560) {
+      } else if (top < 1760) {
         vm.curState = 1;
-      } else if (top < 2060) {
+      } else if (top < 2360) {
         vm.curState = 2;
-      } else if (top < 2560) {
+      } else if (top < 2960) {
         vm.curState = 3;
-      } else if (top < 3060) {
+      } else if (top < 3560) {
         vm.curState = 4;
       }
     })
