@@ -10,8 +10,8 @@
         <Select v-model="selectedLesson" placeholder="課程選擇" style="width:200px; margin:15px;">
           <Option v-for="item in lessonList" :value="item.value" :key="item.value">{{ item.label }}</Option>
         </Select>
-        <Input class="ConsultInput" v-model="name" placeholder="姓名"/>
-        <Input class="ConsultInput" v-model="email" placeholder="信箱"/>
+        <Input class="ConsultInput" v-model="name" placeholder="您的姓名"/>
+        <Input class="ConsultInput" v-model="email" placeholder="您的信箱"/>
         <Input class="boardInput" v-model="question" type="textarea" :rows="8" placeholder="您的疑問"/>
         <Button class="btn" type="primary">送出</Button>
       </div>
@@ -39,7 +39,9 @@
           </Card>
         </div>
       </div>
-      <Button class="btn" type="primary" to="https://www.iviewui.com/" target="_blank">報名</Button>
+      <Button class="btn" type="primary">
+        報名
+      </Button>
     </div>
   </div>
 </template>
@@ -140,9 +142,11 @@ export default {
 
 .btn {
   position: absolute;
-  width: 80px;
+  width: 50%;
   height: 40px;
   right: 10px;
   bottom: 10px;
+  font-size: 15px;
+  font-weight: bolder;
 }
 </style>

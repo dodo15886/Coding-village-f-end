@@ -2,9 +2,9 @@
   <div id="index">
     <div class="guidePage">
       <div class="guideBtnStruc">
-        <Button @click="changeState(560)" type="primary" size="large">新手</Button>
-        <Button @click="changeState(1760)" type="primary" size="large">有點經驗</Button>
-        <Button  @click="changeState(2960)" type="primary" size="large">Coding大師</Button>
+        <Button @click="changeState(pythonPosition)" type="primary" size="large" >新手</Button>
+        <Button @click="changeState(webPosition)" type="primary" size="large">有點經驗</Button>
+        <Button @click="changeState(cPlusPlusPosition)" type="primary" size="large">Coding大師</Button>
       </div>
       <div class="people">
         <img id="peopleIcon" src="@/assets/lost.png" width="180px" height="210px">
@@ -12,15 +12,15 @@
       </div>
     </div>
 
-    <div class="contentStruc">
+    <div id="python" class="contentStruc">
       <div class="contentStep">
-        <Affix :offset-top="100">
+        <Affix :offset-top="200">
           <Steps :current="curState" direction="vertical">
             <Step title="Python村" content="完全沒學過程式"></Step>
+            <Step title="Web村" content="動手寫一個網站"></Step>
+            <Step title="App村" content="動手寫一個APP"></Step>
             <Step title="C++村" content="適合之後想走理工系"></Step>
-            <Step title="Web村" content="想用程式寫點應用"></Step>
-            <Step title="App村" content="想用程式寫點應用"></Step>
-            <Step title="演算法村" content="半腳踏入資工系了"></Step>
+            <Step title="APCS村" content="半腳踏入資工系了"></Step>
           </Steps>
         </Affix>
       </div>
@@ -37,11 +37,45 @@
           <p>適合對象：12歲以上，想嘗試寫寫看程式者。</p>
           <p>訓練內容：python程式語言</p>
         </div>
-        <Button class="interestBtn" @click="showDetail('python')" type="primary" size="large">我有興趣！</Button>
+        <Button class="interestBtn" @click="showDetail('python')" size="large">我有興趣！</Button>
       </div>
     </div>
 
-    <div class="contentStruc">
+    <div id="web" class="contentStruc">
+      <div class="contentHead">
+        <div class="divider"></div>
+        <div class="contentHeadText">Web村：做出一個屬於自己的網頁</div>
+      </div>
+
+      <div class="content">
+        <img id="warriorIcon" src="@/assets/warrior3.png" width="250px" height="250px">
+        <div class="warriorContent">
+          <p>角色：應用邏輯勇者</p>
+          <p>適合對象：12歲以上，想嘗試自己動手寫一個網站的人。</p>
+          <p>訓練內容：html + css + javascript</p>
+        </div>
+        <Button class="interestBtn" @click="showDetail('web')" size="large">我有興趣！</Button>
+      </div>
+    </div>
+
+    <div id="app" class="contentStruc">
+      <div class="contentHead">
+        <div class="divider"></div>
+        <div class="contentHeadText">APP村：寫APP發大財</div>
+      </div>
+
+      <div class="content">
+        <img id="warriorIcon" src="@/assets/warrior4.png" width="250px" height="250px">
+        <div class="warriorContent">
+          <p>角色：應用邏輯勇者</p>
+          <p>適合對象：12歲以上，想嘗試自己動手寫一個APP的人。</p>
+          <p>訓練內容：JAVA + XML</p>
+        </div>
+        <Button class="interestBtn" @click="showDetail('app')" size="large">我有興趣！</Button>
+      </div>
+    </div>
+
+    <div id="cPlusPlus" class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
         <div class="contentHeadText">C++村：成為頂尖高手必備絕技</div>
@@ -54,45 +88,15 @@
           <p>適合對象：15歲以上，將來想往理工科系發展者。</p>
           <p>訓練內容：C++程式語言</p>
         </div>
-        <Button class="interestBtn" @click="showDetail('cPlusPlus')" type="primary" size="large">我有興趣！</Button>
+        <Button
+          class="interestBtn"
+          @click="showDetail('cPlusPlus')"
+          size="large"
+        >我有興趣！</Button>
       </div>
     </div>
 
-    <div class="contentStruc">
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">Web村：做出一個屬於自己的網頁</div>
-      </div>
-
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior3.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：應用邏輯勇者</p>
-          <p>適合對象：12歲以上，想嘗試應用程式者。</p>
-          <p>訓練內容：html + css + javascript</p>
-        </div>
-        <Button class="interestBtn" @click="showDetail('web')" type="primary" size="large">我有興趣！</Button>
-      </div>
-    </div>
-
-    <div class="contentStruc">
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">APP村：寫APP發大財</div>
-      </div>
-
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior4.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：應用邏輯勇者</p>
-          <p>適合對象：12歲以上，想嘗試應用程式者。</p>
-          <p>訓練內容：JAVA + XML</p>
-        </div>
-        <Button class="interestBtn" @click="showDetail('app')" type="primary" size="large">我有興趣！</Button>
-      </div>
-    </div>
-
-    <div class="contentStruc">
+    <div id="apcs" class="contentStruc">
       <div class="contentHead">
         <div class="divider"></div>
         <div class="contentHeadText">APCS村：資工系在等著你</div>
@@ -103,9 +107,9 @@
         <div class="warriorContent">
           <p>角色：邏輯超勇者</p>
           <p>適合對象：15歲以上，對一個以上程式語言精熟者。</p>
-          <p>訓練內容：資料結構 + 演算法</p>
+          <p>訓練內容：APCS題庫 + 資料結構 + 演算法</p>
         </div>
-        <Button class="interestBtn" @click="showDetail('apcs')" type="primary" size="large">我有興趣！</Button>
+        <Button class="interestBtn" @click="showDetail('apcs')" size="large">我有興趣！</Button>
       </div>
     </div>
   </div>
@@ -117,27 +121,46 @@ export default {
   data() {
     return {
       curState: 0,
+      pythonPosition: 0,
+      webPosition: 0,
+      appPosition: 0,
+      cPlusPlusPosition: 0,
+      apcsPosition: 0,
       stateList: ["Python村", "C++村", "Web村", "App村", "演算法村"]
     };
   },
 
   mounted() {
     let vm = this;
-    window.addEventListener('scroll',function(){
-      let top = document.documentElement.scrollTop || document.body.scrollTop || window.pageYOffset;
+    const d = 60;
+    this.pythonPosition = document.getElementById("python").offsetTop - d;
+    this.webPosition = document.getElementById("web").offsetTop - d;
+    this.appPosition = document.getElementById("app").offsetTop - d;
+    this.cPlusPlusPosition = document.getElementById("cPlusPlus").offsetTop - d;
+    this.apcsPosition = document.getElementById("apcs").offsetTop - d;
+
+    window.addEventListener("scroll", function() {
+      let top =
+        document.documentElement.scrollTop ||
+        document.body.scrollTop ||
+        window.pageYOffset;
+
+      console.log("top", top);
+      console.log("webPosition",vm.webPosition);
+
       //要做兼容，在模拟器能正常获取scrolltop在微信h5页面和手机的浏览器页面一直为0
-      if (top < 1160) {
+      if (top < vm.webPosition) {
         vm.curState = 0;
-      } else if (top < 1760) {
+      } else if (top < vm.appPosition) {
         vm.curState = 1;
-      } else if (top < 2360) {
+      } else if (top < vm.cPlusPlusPosition) {
         vm.curState = 2;
-      } else if (top < 2960) {
+      } else if (top < vm.apcsPosition) {
         vm.curState = 3;
-      } else if (top < 3560) {
+      } else {
         vm.curState = 4;
       }
-    })
+    });
   },
   methods: {
     showDetail(state) {
@@ -147,16 +170,25 @@ export default {
     },
 
     changeState(state) {
-      window.document.documentElement.scrollTop = state;
+      clearInterval(timer);
+      var timer = setInterval(function() {
+        window.scrollBy(0, 20); //每msec滚动speed的距离，可根据需求微调
+      }, 10);
+      window.onscroll = function() {
+        var distance1 = window.pageYOffset;
+        var y = distance1 - state;
+        if (y >= -20 && y <= 20) {
+          //设置停止定时器的区间
+          clearInterval(timer);
+        }
+      };
     }
-  
   }
 };
 </script>
 
 <style scoped>
 .header {
-  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   height: 60px;
@@ -173,12 +205,10 @@ export default {
 }
 
 .guidePage {
-  height: 500px;
+  height: 600px;
   background-color: rgb(218, 227, 234);
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  /* align-items: center; */
 }
 
 .guideBtnStruc {
@@ -194,7 +224,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: 1px solid red; */
 }
 
 #peopleIcon {
@@ -202,9 +231,7 @@ export default {
 }
 
 .contentStruc {
-  /* display: flex; */
   position: relative;
-  /* border: 1px solid red; */
   height: 600px;
 }
 
@@ -233,6 +260,7 @@ export default {
   display: flex;
   align-items: flex-start;
   background-color: rgb(218, 227, 234);
+  /* border:1px solid red; */
   position: relative;
   left: 250px;
   top: 100px;
