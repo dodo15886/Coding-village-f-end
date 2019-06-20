@@ -1,19 +1,35 @@
 <template>
   <div id="index">
     <div class="guidePage">
+      <img src="@/assets/cover.jpg" width="100%">
+      <div id="introName">Coding Village</div>
+      <div id="introQuote">用邏輯漫步在程式的世界裡</div>
       <div class="guideBtnStruc">
-        <Button @click="changeState(pythonPosition)" type="primary" size="large" >新手</Button>
-        <Button @click="changeState(webPosition)" type="primary" size="large">有點經驗</Button>
-        <Button @click="changeState(cPlusPlusPosition)" type="primary" size="large">Coding大師</Button>
-      </div>
-      <div class="people">
-        <img id="peopleIcon" src="@/assets/lost.png" width="180px" height="210px">
-        <div style="font-size:25px;margin-top:15px">你是...</div>
+        <Button @click="changeState(pythonPosition)" type="default" size="large" icon="ios-arrow-down">程式新手</Button>
+        <Button @click="changeState(webPosition)" type="default" size="large" icon="ios-arrow-down">曾經寫過點程式</Button>
+        <Button @click="changeState(cPlusPlusPosition+5)" type="default" size="large" icon="ios-arrow-down">程式大師</Button>
       </div>
     </div>
 
-    <div id="python" class="contentStruc">
-      <div class="contentStep">
+    <div class="introElementStruc">
+      <div class="introElement">
+        <img src="@/assets/teacher.png" class="introIcon">
+        <div class="introText">專業講師，為你客製化專屬課程！</div>
+      </div>
+      <div class="divider"></div>
+      <div class="introElement">
+        <img src="@/assets/innovative.png" class="introIcon">
+        <div class="introText">翻轉教育，打破傳統講授式課程的框架！</div>
+      </div>
+      <div class="divider"></div>
+      <div class="introElement">
+        <img src="@/assets/data.png" class="introIcon">
+        <div class="introText">動手實作，絕非紙上談兵，做出有趣的作品！</div>
+      </div>
+    </div>
+
+    <div style="display: flex; border-top: 3px solid rgb(218, 227, 234);">
+      <div class="leftBlank">
         <Affix :offset-top="200">
           <Steps :current="curState" direction="vertical">
             <Step title="Python村" content="完全沒學過程式"></Step>
@@ -25,91 +41,91 @@
         </Affix>
       </div>
 
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">Python村：熟悉程式語言</div>
-      </div>
+      <div class="rightClassStruc">
+        <div id="python" class="contentStruc">
+          <div class="contentHead">
+            <div class="divider"></div>
+            <div class="contentHeadText">Python村：熟悉程式語言</div>
+          </div>
 
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior1.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：初級邏輯勇者</p>
-          <p>適合對象：12歲以上，想嘗試寫寫看程式者。</p>
-          <p>訓練內容：python程式語言</p>
+          <div class="content">
+            <img id="warriorIcon" src="@/assets/warrior1.png" width="250px" height="250px">
+            <div class="warriorContent">
+              <p>角色：初級邏輯勇者</p>
+              <p>適合對象：12歲以上，想嘗試寫寫看程式者。</p>
+              <p>訓練內容：python程式語言</p>
+              <Button class="interestBtn" @click="showDetail('python')" size="large">我有興趣！</Button>
+            </div>
+          </div>
         </div>
-        <Button class="interestBtn" @click="showDetail('python')" size="large">我有興趣！</Button>
-      </div>
-    </div>
 
-    <div id="web" class="contentStruc">
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">Web村：做出一個屬於自己的網頁</div>
-      </div>
+        <div id="web" class="contentStruc">
+          <div class="contentHead">
+            <div class="divider"></div>
+            <div class="contentHeadText">Web村：做出一個屬於自己的網頁</div>
+          </div>
 
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior3.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：應用邏輯勇者</p>
-          <p>適合對象：12歲以上，想嘗試自己動手寫一個網站的人。</p>
-          <p>訓練內容：html + css + javascript</p>
+          <div class="content">
+            <img id="warriorIcon" src="@/assets/warrior3.png" width="250px" height="250px">
+            <div class="warriorContent">
+              <p>角色：應用邏輯勇者</p>
+              <p>適合對象：12歲以上，想嘗試自己動手寫一個網站的人。</p>
+              <p>訓練內容：html + css + javascript</p>
+            </div>
+            <Button class="interestBtn" @click="showDetail('web')" size="large">我有興趣！</Button>
+          </div>
         </div>
-        <Button class="interestBtn" @click="showDetail('web')" size="large">我有興趣！</Button>
-      </div>
-    </div>
 
-    <div id="app" class="contentStruc">
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">APP村：寫APP發大財</div>
-      </div>
+        <div id="app" class="contentStruc">
+          <div class="contentHead">
+            <div class="divider"></div>
+            <div class="contentHeadText">APP村：寫APP發大財</div>
+          </div>
 
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior4.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：應用邏輯勇者</p>
-          <p>適合對象：12歲以上，想嘗試自己動手寫一個APP的人。</p>
-          <p>訓練內容：JAVA + XML</p>
+          <div class="content">
+            <img id="warriorIcon" src="@/assets/warrior4.png" width="250px" height="250px">
+            <div class="warriorContent">
+              <p>角色：應用邏輯勇者</p>
+              <p>適合對象：12歲以上，想嘗試自己動手寫一個APP的人。</p>
+              <p>訓練內容：JAVA + XML</p>
+            </div>
+            <Button class="interestBtn" @click="showDetail('app')" size="large">我有興趣！</Button>
+          </div>
         </div>
-        <Button class="interestBtn" @click="showDetail('app')" size="large">我有興趣！</Button>
-      </div>
-    </div>
 
-    <div id="cPlusPlus" class="contentStruc">
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">C++村：成為頂尖高手必備絕技</div>
-      </div>
+        <div id="cPlusPlus" class="contentStruc">
+          <div class="contentHead">
+            <div class="divider"></div>
+            <div class="contentHeadText">C++村：成為頂尖高手必備絕技</div>
+          </div>
 
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior2.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：次級邏輯勇者</p>
-          <p>適合對象：15歲以上，將來想往理工科系發展者。</p>
-          <p>訓練內容：C++程式語言</p>
+          <div class="content">
+            <img id="warriorIcon" src="@/assets/warrior2.png" width="250px" height="250px">
+            <div class="warriorContent">
+              <p>角色：次級邏輯勇者</p>
+              <p>適合對象：15歲以上，將來想往理工科系發展者。</p>
+              <p>訓練內容：C++程式語言</p>
+            </div>
+            <Button class="interestBtn" @click="showDetail('cPlusPlus')" size="large">我有興趣！</Button>
+          </div>
         </div>
-        <Button
-          class="interestBtn"
-          @click="showDetail('cPlusPlus')"
-          size="large"
-        >我有興趣！</Button>
-      </div>
-    </div>
 
-    <div id="apcs" class="contentStruc">
-      <div class="contentHead">
-        <div class="divider"></div>
-        <div class="contentHeadText">APCS村：資工系在等著你</div>
-      </div>
+        <div id="apcs" class="contentStruc">
+          <div class="contentHead">
+            <div class="divider"></div>
+            <div class="contentHeadText">APCS村：資工系在等著你</div>
+          </div>
 
-      <div class="content">
-        <img id="warriorIcon" src="@/assets/warrior5.png" width="250px" height="250px">
-        <div class="warriorContent">
-          <p>角色：邏輯超勇者</p>
-          <p>適合對象：15歲以上，對一個以上程式語言精熟者。</p>
-          <p>訓練內容：APCS題庫 + 資料結構 + 演算法</p>
+          <div class="content">
+            <img id="warriorIcon" src="@/assets/warrior5.png" width="250px" height="250px">
+            <div class="warriorContent">
+              <p>角色：邏輯超勇者</p>
+              <p>適合對象：15歲以上，對一個以上程式語言精熟者。</p>
+              <p>訓練內容：APCS題庫 + 資料結構 + 演算法</p>
+            </div>
+            <Button class="interestBtn" @click="showDetail('apcs')" size="large">我有興趣！</Button>
+          </div>
         </div>
-        <Button class="interestBtn" @click="showDetail('apcs')" size="large">我有興趣！</Button>
       </div>
     </div>
   </div>
@@ -145,8 +161,8 @@ export default {
         document.body.scrollTop ||
         window.pageYOffset;
 
-      console.log("top", top);
-      console.log("webPosition",vm.webPosition);
+      // console.log("top", top);
+      // console.log("webPosition",vm.webPosition);
 
       //要做兼容，在模拟器能正常获取scrolltop在微信h5页面和手机的浏览器页面一直为0
       if (top < vm.webPosition) {
@@ -170,10 +186,13 @@ export default {
     },
 
     changeState(state) {
+
+      // BUG! 有時候滾下來的時候會對不到正確的位置！
+      
       clearInterval(timer);
       var timer = setInterval(function() {
-        window.scrollBy(0, 20); //每msec滚动speed的距离，可根据需求微调
-      }, 10);
+        window.scrollBy(0, 10); //每msec滚动speed的距离，可根据需求微调
+      }, 1);
       window.onscroll = function() {
         var distance1 = window.pageYOffset;
         var y = distance1 - state;
@@ -205,29 +224,85 @@ export default {
 }
 
 .guidePage {
-  height: 600px;
+  position: relative;
+  /* width: 100%; */
+  height: 46vw;
   background-color: rgb(218, 227, 234);
   display: flex;
   flex-direction: column;
 }
 
-.guideBtnStruc {
-  position: relative;
+.introElementStruc {
+  margin: 5vw auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 50px;
+  width: 90vw;
+  height: 8vw;
+  border: 3px solid rgb(218, 227, 234);
+  border-radius: 15px;
 }
 
-.people {
+.introElementStruc .divider {
+  height: 50px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.introElement {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 
-#peopleIcon {
-  margin-top: 100px;
+.introText {
+  margin-left: 20px;
+  font-size: 18px;
+  max-width: 180px;
+}
+
+.introIcon {
+  width: 5vw;
+  height: 5vw;
+}
+
+.rightClassStruc {
+  display: flex;
+  flex-direction: column;
+}
+
+#introName {
+  font-size: 6vw;
+  font-weight: bold;
+  color: white;
+  position: absolute;
+  z-index: 0;
+  top: 18vh;
+  left: 14vw;
+}
+
+#introQuote {
+  font-size: 3vw;
+  font-weight: bolder;
+  color: white;
+  position: absolute;
+  z-index: 0;
+  bottom: 25vh;
+  right: 15vw;
+}
+
+.guideBtnStruc {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.leftBlank {
+  margin-top: 10vw;
+  margin-left: 20px;
+  width: 250px;
 }
 
 .contentStruc {
@@ -236,13 +311,9 @@ export default {
 }
 
 .contentHead {
-  position: absolute;
-  left: 250px;
   height: 100px;
   display: flex;
   align-items: center;
-
-  /* border: 1px solid red; */
 }
 
 .divider {
@@ -258,14 +329,11 @@ export default {
 
 .content {
   display: flex;
-  align-items: flex-start;
+  justify-content: center;
   background-color: rgb(218, 227, 234);
-  /* border:1px solid red; */
   position: relative;
-  left: 250px;
-  top: 100px;
   height: 500px;
-  width: 2000px;
+  width: 80vw;
 }
 
 #warriorIcon {
@@ -273,20 +341,15 @@ export default {
 }
 
 .warriorContent {
+  position: relative;
   margin-top: 80px;
   font-size: 20px;
   font-weight: bold;
 }
 
-.contentStep {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-}
-
 .interestBtn {
   position: absolute;
-  left: 500px;
-  top: 300px;
+  right: 5vw;
+  bottom: 15vh;
 }
 </style>

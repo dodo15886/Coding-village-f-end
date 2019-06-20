@@ -1,5 +1,6 @@
 <template>
   <div class="memberPageStruc">
+    <div class="blank"></div>
     <div class="header">成員介紹</div>
     <div class="member">
       <div class="photoStruc">
@@ -21,10 +22,10 @@
       <div class="content">
         <p class="name">邱柏皓 Kevin</p>
         <div class="divider"></div>
-        <p>創辦人、行銷王</p>
+        <p>創辦人、行銷長</p>
         <p>中山外文系</p>
-        <p>pinkoi王、手下敗將、免役拉g</p>
-        <p class="qoute">「被淘汰後還被專訪告訴我們其實我們是第四名，就是輸在一點運氣，差點沒哭出來，不過我的履歷鐵定會出現16屆ATCCxIBM殿軍」</p>
+        <p>Pinkoi獨立設計師、豐富家教經驗</p>
+        <p class="qoute">「任何一顆平凡的石頭，只要有著一處銳利的角，它就是一把刀。」</p>
       </div>
     </div>
     <div class="member">
@@ -53,6 +54,11 @@ export default {};
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.blank {
+  height: 60px;
+  width: 100%;
 }
 
 .header {

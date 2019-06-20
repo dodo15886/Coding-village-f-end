@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="blank"></div>
     <div class="header">Python村：熟悉程式語言</div>
     <div class="subHeader">適合對象：12歲以上，想嘗試寫寫看程式者。</div>
     <div class="content">
@@ -39,6 +40,12 @@ export default {
 </script>
 
 <style scoped>
+
+.blank {
+  height: 60px;
+  width: 100%;
+}
+
 .header {
   font-size: 30px;
   margin-left: 20px;
