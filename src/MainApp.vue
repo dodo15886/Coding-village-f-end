@@ -41,7 +41,9 @@
         <div id="headerText">Coding Village</div>
       </div>
     </div>
+  
     <router-view></router-view>
+
     <div class="footerStruc">
       <div id="blank"></div>
       <footer class="footer">
@@ -125,6 +127,7 @@ export default {
   /* background-color: white; */
   height: 60px;
   width: 100%;
+  
 }
 
 .logoStruc {

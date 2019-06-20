@@ -2,7 +2,6 @@
   <div>
     <div class="blank"></div>
     <div class="consultQAstruc">
-
       <div class="consultStruc">
         <div class="consultHeader">課程諮詢</div>
         <div class="consultContent">
@@ -11,12 +10,22 @@
             <p>email：dodo15886@gmail.com</p>
           </Card>
           <Select v-model="selectedLesson" placeholder="課程選擇" style="width:200px; margin:15px;">
-            <Option v-for="item in lessonList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+            <Option
+              v-for="item in lessonList"
+              :value="item.value"
+              :key="item.value"
+            >{{ item.label }}</Option>
           </Select>
-          <Input class="ConsultInput" v-model="name" placeholder="您的姓名"/>
+          <Input class="ConsultInput" v-model="name" :value="name" placeholder="您的姓名"/>
           <Input class="ConsultInput" v-model="email" placeholder="您的信箱"/>
-          <Input class="boardInput" v-model="question" type="textarea" :rows="8" placeholder="您的疑問"/>
-          <Button class="btn" type="primary">送出</Button>
+          <Input
+            class="boardInput"
+            v-model="question"
+            type="textarea"
+            :rows="8"
+            placeholder="您的疑問"
+          />
+          <Button @click="adviceSubmit" class="btn" type="primary">送出</Button>
         </div>
       </div>
 
@@ -42,15 +51,16 @@
             </Card>
           </div>
         </div>
-        <Button class="btn" type="primary">
-          報名
-        </Button>
+        <Button class="btn" type="primary">報名</Button>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
+import { deflateSync } from "zlib";
+
 export default {
   data() {
     return {
@@ -81,12 +91,49 @@ export default {
       email: "",
       question: ""
     };
+  },
+
+  methods: {
+    adviceSubmit() {
+      if (
+        this.name == "" ||
+        this.email == "" ||
+        this.selectedLesson == "" ||
+        this.question == ""
+      ) {
+        this.$Message.error("你有東西沒填！");
+      } else {
+        let userAdvice = {
+          name: this.name,
+          email: this.email,
+          lesson: this.selectedLesson,
+          question: this.question
+        };
+        axios
+          .post("http://192.168.3.19:3000/advice", userAdvice)
+          .then(({ data }) => {
+            if (data) {
+              // write in excel successfully
+              this.name = "";
+              this.email = "";
+              this.selectedLesson = "";
+              this.question = "";
+              this.$Message.success("提交成功！謝謝您的建議，會盡快回覆您。");
+            } else {
+              this.$Message.error("輸入失敗，伺服器有問題，請稍後再試！");
+            }
+          })
+          .catch(err => {
+            console.log(err);
+            this.$Message.error("輸入失敗，伺服器有問題，請稍後再試！");
+          });
+      }
+    }
   }
 };
 </script>
 
 <style scoped>
-
 .blank {
   height: 60px;
   width: 100%;
