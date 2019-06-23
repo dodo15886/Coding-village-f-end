@@ -18,8 +18,8 @@ Vue.use(iView);
 Vue.use(VueRouter);
 
 const routes = [
-  { path: '/Index', name: 'index', component: Index },
   { path: '/Consult', name: 'consult', component: Consult},
+  { path: '/Index', name: 'index', component: Index },
   { path: '/Member', name: 'member', component: Member},
   { path: '/Python', name: 'python', component: Python },
   { path: '/CPlusPlus', name: 'cPlusPlus', component: CPlusPlus },

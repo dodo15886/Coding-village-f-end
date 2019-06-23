@@ -1,5 +1,6 @@
 <template>
   <div>
+    <div class="blank"></div>
     <div class="header">C++村：成為頂尖高手必備絕技</div>
     <div class="subHeader">適合對象：15歲以上，將來想往理工科系發展者。</div>
     <div class="content">
@@ -20,6 +21,12 @@ export default {};
 </script>
 
 <style scoped>
+
+.blank {
+  height: 60px;
+  width: 100%;
+}
+
 .header {
   font-size: 30px;
   margin-left: 20px;
