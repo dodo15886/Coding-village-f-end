@@ -10,7 +10,7 @@
         <p class="name">周永霖 Michael</p>
         <div class="divider"></div>
         <p>創辦人、講師、工程師</p>
-        <p>中山資工系，曾在上海復旦交換半年</p>
+        <p>中山資工系，上海復旦交換半年</p>
         <p>豐富的四年家教經驗</p>
         <p class="qoute">「雖然夢想很大很多，但夢想不應該教會我們取捨，想要的很多，那就讓自己變得更強，然後通通做好。」</p>
       </div>
@@ -35,10 +35,23 @@
       <div class="content">
         <p class="name">陳建宏 Chien</p>
         <div class="divider"></div>
-        <p>創辦人、講師、工程師</p>
-        <p>中山電機系，曾在德國交換半年</p>
-        <p>大一六系烤肉總召</p>
-        <p class="qoute">「明明分開沒幾天就吵著要來台北找我的呆」</p>
+        <p>創辦人、工程師</p>
+        <p>中山電機系</p>
+        <p>德國達姆斯達特大學交換半年</p>
+        <p class="qoute">「噴泉的高度不會超過它的源頭;一個人的成就不會超過他的信念。」</p>
+      </div>
+    </div>
+    <div class="member">
+      <div class="photoStruc">
+        <img class="photo" src="@/assets/Mandy.jpg">
+      </div>
+      <div class="content">
+        <p class="name">邱于瑄 Mandy</p>
+        <div class="divider"></div>
+        <p>社群媒體管理員</p>
+        <p>政大新聞系</p>
+        <p>板中1%、遠見實習生、新傳獎得主、板中鄧紫棋</p>
+        <p class="qoute">「Change your thought, and change your world.」</p>
       </div>
     </div>
   </div>
@@ -110,7 +123,7 @@ export default {};
 
 .photo {
   width: 145px;
-  height: 150px;
+  height: 145px;
   margin: 10px;
   border-radius: 50%;
 }
