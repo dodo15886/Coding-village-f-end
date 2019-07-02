@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="consult">
     <div class="blank"></div>
     <div class="consultQAstruc">
       <div class="consultStruc">
@@ -51,7 +51,7 @@
             </Card>
           </div>
         </div>
-        <Button class="btn" type="primary">報名</Button>
+        <Button class="btn" type="primary" target="_blank" to="https://docs.google.com/forms/d/1uki5ilme7mPnoeiZ8s5JOyyPotnYkSAJ87sP6zA_ZaE/edit?usp=sharing">報名</Button>
       </div>
     </div>
   </div>
@@ -59,9 +59,11 @@
 
 <script>
 import axios from "axios";
-import { deflateSync } from "zlib";
 
 export default {
+
+  name: "consult",
+  
   data() {
     return {
       lessonList: [

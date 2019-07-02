@@ -72,7 +72,7 @@
               <p>適合對象：12歲以上，想嘗試自己動手寫一個網站的人。</p>
               <p>訓練內容：html + css + javascript</p>
             </div>
-            <Button class="interestBtn" @click="showDetail('web')" size="large">我有興趣！</Button>
+            <Button class="interestBtn" @click="showDetail('web')" size="large" disabled>即將推出</Button>
           </div>
         </div>
 
@@ -89,7 +89,7 @@
               <p>適合對象：12歲以上，想嘗試自己動手寫一個APP的人。</p>
               <p>訓練內容：JAVA + XML</p>
             </div>
-            <Button class="interestBtn" @click="showDetail('app')" size="large">我有興趣！</Button>
+            <Button class="interestBtn" @click="showDetail('app')" size="large" disabled>即將推出</Button>
           </div>
         </div>
 
@@ -123,7 +123,7 @@
               <p>適合對象：15歲以上，對一個以上程式語言精熟者。</p>
               <p>訓練內容：APCS題庫 + 資料結構 + 演算法</p>
             </div>
-            <Button class="interestBtn" @click="showDetail('apcs')" size="large">我有興趣！</Button>
+            <Button class="interestBtn" @click="showDetail('apcs')" size="large" disabled>即將推出</Button>
           </div>
         </div>
       </div>

@@ -99,7 +99,7 @@
             </div>
             <Button
               class="btn"
-              to="https://www.iviewui.com/"
+              to="https://docs.google.com/forms/d/1uki5ilme7mPnoeiZ8s5JOyyPotnYkSAJ87sP6zA_ZaE/edit"
               target="_blank"
               type="primary"
               size="large"
@@ -131,7 +131,7 @@
             </div>
             <Button
               class="btn"
-              to="https://www.iviewui.com/"
+              to="https://docs.google.com/forms/d/1uki5ilme7mPnoeiZ8s5JOyyPotnYkSAJ87sP6zA_ZaE/edit"
               target="_blank"
               type="primary"
               size="large"
@@ -163,7 +163,7 @@
             </div>
             <Button
               class="btn"
-              to="https://www.iviewui.com/"
+              to="https://docs.google.com/forms/d/1uki5ilme7mPnoeiZ8s5JOyyPotnYkSAJ87sP6zA_ZaE/edit"
               target="_blank"
               type="primary"
               size="large"

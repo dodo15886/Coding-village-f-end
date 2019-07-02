@@ -1,47 +1,10 @@
 <template>
   <div class="mainApp">
-    <div :style="[MainAppTop ? HeaderOnOthersStyle:HeaderOnTopStyle]">
-      <Dropdown @on-click="changePage">
-        <div id="headerIcon">
-          <Icon type="md-menu" size="30"/>
-        </div>
-        <DropdownMenu slot="list">
-          <Dropdown placement="right-start">
-            <DropdownItem name="member">
-              關於我們
-              <Icon type="ios-arrow-forward"></Icon>
-            </DropdownItem>
-            <DropdownMenu slot="list">
-              <DropdownItem disabled>創作理念</DropdownItem>
-              <DropdownItem name="member">成員介紹</DropdownItem>
-              <DropdownItem disabled>合作計畫</DropdownItem>
-              <DropdownItem name="consult">常見問題</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
 
-          <Dropdown placement="right-start">
-            <DropdownItem name="index">
-              課程介紹
-              <Icon type="ios-arrow-forward"></Icon>
-            </DropdownItem>
-            <DropdownMenu slot="list">
-              <DropdownItem name="python">Python</DropdownItem>
-              <DropdownItem name="cPlusPlus">C++</DropdownItem>
-              <DropdownItem name="web" disabled>Web</DropdownItem>
-              <DropdownItem name="app" disabled>App</DropdownItem>
-              <DropdownItem name="apcs" disabled>APCS</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+    <div style="height: 60px;"></div>
+    
+    <customHeader @changePage="parentChangePage"></customHeader>
 
-          <DropdownItem name="consult">免費諮詢</DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
-      <div class="logoStruc" @click="changePage('index')">
-        <img src="@/assets/village.png" width="40px" height="40px">
-        <div id="headerText">Coding Village</div>
-      </div>
-    </div>
-  
     <router-view></router-view>
 
     <div class="footerStruc">
@@ -54,6 +17,9 @@
 </template>
 
 <script>
+
+import customHeader from "@/components/customHeader.vue";
+
 export default {
   name: "MainApp",
 
@@ -80,6 +46,8 @@ export default {
         top: '0px',
         color: 'white',
         "background-color": 'rgb(0,0,0,0.7)',
+        // "background-color": 'rgb(256,256,256)',
+        // "border-bottom": '1px solid black',
         height: '60px',
         width: '100%',
         "z-index": '1'
@@ -102,12 +70,18 @@ export default {
   },
 
   methods: {
-    changePage(toWhatPage) {
+    parentChangePage(toWhatPage) {
+      console.log(toWhatPage);
       this.$router.push({
         name: toWhatPage
       });
     }
+  },
+
+  components: {
+    customHeader
   }
+
 };
 </script>
 

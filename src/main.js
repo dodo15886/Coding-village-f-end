@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import MainApp from './MainApp.vue'
+import Login from './login.vue'
+import Register from './register.vue'
 import Index from './Index.vue'
 import Consult from './consult.vue'
 import Member from './member.vue'
@@ -26,6 +28,8 @@ const routes = [
   { path: '/Web', name: 'web', component: Web },
   { path: '/App', name: 'app', component: App },
   { path: '/APCS', name: 'apcs', component: APCS },
+  { path: '/Login', name: 'login', component: Login },
+  { path: '/Register', name: 'register', component: Register },
   { path: "*", component: Index }
 ]
 
