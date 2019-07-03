@@ -112,7 +112,7 @@ export default {
           question: this.question
         };
         axios
-          .post("http://192.168.1.195:3000/advice", userAdvice)
+          .post("http://10.0.0.180:3000/advice", userAdvice)
           .then(({ data }) => {
             if (data) {
               // write in excel successfully
