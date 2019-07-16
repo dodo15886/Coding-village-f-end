@@ -54,7 +54,8 @@ export default {
       name: "",
       password: "",
       email: "",
-      comfirmPW: ""
+      comfirmPW: "",
+      localhostUrl: ""
     };
   },
 
@@ -63,7 +64,7 @@ export default {
       let userData = {
         name: this.name,
         password: this.password,
-        email: this.email,
+        email: this.email
       };
       let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
 
@@ -72,13 +73,30 @@ export default {
       } else if (this.email.search(emailRule) == -1) {
         this.$Message.error("Email格式錯了");
       } else if (this.password.length > 10) {
-        this.$Message.error("密碼只能10個字拉");        
+        this.$Message.error("密碼只能10個字拉");
       } else {
         axios
-          .post("http://10.0.0.180:3000/register", userData)
+          .post(this.localhostUrl + "/register", userData)
           .then(({ data }) => {
+            let vm = this;
             if (data) {
-              this.$Message.success("註冊成功");
+              this.$Modal.success({
+                title: "HI, "+data+", 恭喜你註冊成功",
+                content: "暑期營隊熱烈報名中唷",
+                okText: "去看看",
+                closable: true,
+                onOk: function() {
+                  vm.$router.push({
+                    name: "python"
+                  });
+                }
+              });
+              localStorage.setItem("username", data);
+              // location.reload();
+              // BUG: 用localStorage+vuex解決, 監聽不了用localStorage
+              this.$router.push({
+                name: "index"
+              });
             } else {
               this.$Message.error("此帳號已有人使用");
             }
@@ -90,17 +108,26 @@ export default {
     },
 
     toFacebook() {
-      this.$Message.warning("註冊拉幹");      
+      this.$Message.warning("註冊拉幹");
     },
 
     toGoogle() {
-      this.$Message.warning("用啥google拉幹");      
-    },
+      this.$Message.warning("用啥google拉幹");
+    }
+  },
+
+  created() {
+    this.localhostUrl = this.$store.state.localhostUrl;
   },
 
   computed: {
     ableToRegister() {
-      if (this.comfirmPW != 0 && this.password != 0 && this.email && this.name) {
+      if (
+        this.comfirmPW != 0 &&
+        this.password != 0 &&
+        this.email &&
+        this.name
+      ) {
         return false;
       } else {
         return true;
@@ -111,7 +138,6 @@ export default {
 </script>
 
 <style scoped>
-
 #register {
   display: flex;
   justify-content: center;
@@ -159,7 +185,7 @@ export default {
 
 #DIYtext {
   width: 250px;
-  text-align:center;
+  text-align: center;
   font-weight: bold;
 }
 
@@ -178,7 +204,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(68,105,176);
+  background-color: rgb(68, 105, 176);
   width: 200px;
   height: 30px;
   border-radius: 5px;
@@ -217,8 +243,8 @@ export default {
   cursor: pointer;
 }
 
-.register{
+.register {
   color: orange;
-  cursor: pointer;  
+  cursor: pointer;
 }
 </style>

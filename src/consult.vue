@@ -91,7 +91,8 @@ export default {
       selectedLesson: "",
       name: "",
       email: "",
-      question: ""
+      question: "",
+      localhostUrl: ""
     };
   },
 
@@ -112,7 +113,7 @@ export default {
           question: this.question
         };
         axios
-          .post("http://10.0.0.180:3000/advice", userAdvice)
+          .post(this.localhostUrl + "/advice", userAdvice)
           .then(({ data }) => {
             if (data) {
               // write in excel successfully
@@ -131,7 +132,11 @@ export default {
           });
       }
     }
-  }
+  },
+
+  created() {
+    this.localhostUrl = this.$store.state.localhostUrl;
+  },
 };
 </script>
 

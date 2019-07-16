@@ -30,8 +30,15 @@
       <Button type="text" style="margin:10px;" @click="childChangePage('consult')">免費諮詢</Button>
     </div>
 
-    <div class="loginStruc" style="margin-right:20px;">
-      <Button type="text" style="margin:10px" @click="childChangePage('login')">登入</Button>
+    <Button
+      v-if="!isLogin"
+      type="text"
+      style="margin:20px"
+      @click="childChangePage('login')"
+    >登入</Button>
+    <div v-else class="user" @click="childChangePage('user')">
+      <Icon type="md-contact" size="25"/>
+      <div style="margin:5px">{{username}}</div>
     </div>
   </div>
 </template>
@@ -42,6 +49,7 @@ export default {
 
   data() {
     return {
+      username: "",
       MainAppTop: 0,
       account: ""
     };
@@ -49,6 +57,8 @@ export default {
 
   mounted() {
     let vm = this;
+    this.username = localStorage.getItem("username");
+
     window.addEventListener("scroll", function() {
       vm.MainAppTop =
         document.documentElement.scrollTop ||
@@ -64,11 +74,23 @@ export default {
     childChangePage(toWhatPage) {
       this.$emit("changePage", toWhatPage);
     },
+  },
+  
+  computed: {
+    isLogin() {
+      this.username = localStorage.getItem("username");
+      if (!this.username) {
+        return false;
+      } else {
+        return true;
+      }
+    }
   }
 };
 </script>
 
 <style scoped>
+
 #customHeader {
   position: fixed;
   background-color: white;
@@ -80,6 +102,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgb(218, 227, 234);
 }
 
 #guideAndLogo {
@@ -124,5 +147,14 @@ export default {
 
 #headerIcon {
   margin-left: 10px;
+}
+
+.user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  margin: 20px;
+  cursor: pointer;
 }
 </style>

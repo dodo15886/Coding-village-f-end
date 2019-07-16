@@ -2,7 +2,7 @@
   <div id="login">
     <div class="loginStruc">
       <div class="loginText">
-        <Icon type="ios-exit-outline" size="20" />
+        <Icon type="ios-exit-outline" size="20"/>
         <div style="margin-left:5px;">登入</div>
       </div>
 
@@ -26,11 +26,17 @@
       </div>
 
       <div class="inputStruc">
-        <Input prefix="ios-contact" v-model="account" placeholder="請輸入註冊信箱" class="input"/>
+        <Input prefix="ios-contact" v-model="email" placeholder="請輸入註冊信箱" class="input"/>
         <Input prefix="md-key" v-model="password" placeholder="請輸入密碼" class="input"/>
       </div>
 
-      <Button class="btn" @click="login" type="success" style="width:200px" :disabled="ableToLogin">登入</Button>
+      <Button
+        class="btn"
+        @click="login"
+        type="success"
+        style="width:200px"
+        :disabled="ableToLogin"
+      >登入</Button>
 
       <div class="others">
         <div @click="toForgetPW" class="forgetPW">忘記密碼？</div>
@@ -48,31 +54,50 @@ export default {
 
   data() {
     return {
-      account: "",
-      password: ""
+      email: "",
+      password: "",
+      localhostUrl: ""
     };
   },
 
   methods: {
     login() {
       let userData = {
-        account: this.account,
+        email: this.email,
         password: this.password
       };
-      if (userData.account.length > 10) {
-        this.$Message.warning("帳號不得超過10位數");
-      } else if (userData.account.length == 0) {
-        this.$Message.warning("帳號不得為空");
+
+      let emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+
+      if (userData.email.search(emailRule) == -1) {
+        this.$Message.error("Email格式錯了");
       } else if (userData.password.length > 10) {
         this.$Message.warning("密碼不得超過10位數");
       } else if (userData.password.length == 0) {
         this.$Message.warning("密碼不得為空");
       } else {
         axios
-          .post("http://10.0.0.180:3000/login", userData)
+          .post(this.localhostUrl+"/login", userData)
           .then(({ data }) => {
             if (data) {
-              this.$Message.success("登入成功");
+              let vm = this;
+              localStorage.setItem("username", data);
+              // location.reload();
+              // BUG: 用localStorage+vuex解決
+              this.$Modal.success({
+                title: "HI, "+data+"!",
+                content: "暑期營隊熱烈報名中唷",
+                okText: "去看看",
+                closable: true,
+                onOk: function() {
+                  vm.$router.push({
+                    name: "python"
+                  });
+                }
+              });
+              this.$router.push({
+                name: "index"
+              })
             } else {
               this.$Message.error("未註冊或帳號密碼錯誤");
             }
@@ -84,11 +109,11 @@ export default {
     },
 
     toFacebook() {
-      this.$Message.warning("註冊拉幹");      
+      this.$Message.warning("註冊拉幹");
     },
 
     toGoogle() {
-      this.$Message.warning("用啥google拉幹");      
+      this.$Message.warning("用啥google拉幹");
     },
 
     toForgetPW() {
@@ -100,6 +125,10 @@ export default {
         name: "register"
       });
     }
+  },
+
+  created() {
+    this.localhostUrl = this.$store.state.localhostUrl;
   },
 
   computed: {
@@ -115,7 +144,6 @@ export default {
 </script>
 
 <style scoped>
-
 #login {
   display: flex;
   justify-content: center;
@@ -128,7 +156,7 @@ export default {
   align-items: center;
   flex-direction: column;
   border: 2px solid rgb(218, 227, 234);
-  margin-top:50px;
+  margin-top: 50px;
 }
 
 .loginText {
@@ -149,7 +177,7 @@ export default {
 
 #DIYtext {
   width: 250px;
-  text-align:center;
+  text-align: center;
   font-weight: bold;
 }
 
@@ -168,7 +196,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(68,105,176);
+  background-color: rgb(68, 105, 176);
   width: 200px;
   height: 30px;
   border-radius: 5px;
@@ -207,8 +235,8 @@ export default {
   cursor: pointer;
 }
 
-.register{
+.register {
   color: orange;
-  cursor: pointer;  
+  cursor: pointer;
 }
 </style>
