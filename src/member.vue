@@ -54,19 +54,7 @@
         <p class="qoute">「Change your thought, and change your world.」</p>
       </div>
     </div>
-    <div class="member">
-      <div class="photoStruc">
-        <img class="photo" src="@/assets/Mandy.jpg">
-      </div>
-      <div class="content">
-        <p class="name">魏筠潔 Wei</p>
-        <div class="divider"></div>
-        <p>寫文章的</p>
-        <p>北教大 語文創作系</p>
-        <p>good</p>
-        <p class="qoute">「Change your thought, and change your world.」</p>
-      </div>
-    </div>
+    
   </div>
 </template>
 

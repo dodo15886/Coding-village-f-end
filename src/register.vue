@@ -44,7 +44,9 @@
 </template>
 
 <script>
+
 import axios from "axios";
+import {mapMutations} from "vuex";
 
 export default {
   name: "register",
@@ -60,6 +62,9 @@ export default {
   },
 
   methods: {
+
+    ...mapMutations(['setUsername']),
+
     register() {
       let userData = {
         name: this.name,
@@ -91,9 +96,9 @@ export default {
                   });
                 }
               });
-              localStorage.setItem("username", data);
-              // location.reload();
-              // BUG: 用localStorage+vuex解決, 監聽不了用localStorage
+
+              vm.setUsername(data); // 用vuex的mutation去操作localStorage
+
               this.$router.push({
                 name: "index"
               });

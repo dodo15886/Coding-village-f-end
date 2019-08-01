@@ -12,6 +12,8 @@ import Web from './components/webDetail.vue'
 import App from './components/appDetail.vue'
 import APCS from './components/apcsDetail.vue'
 import HWsystem from './HWsystem.vue'
+import Setting from './userPage/setting.vue'
+import LessonList from './userPage/lessonList.vue'
 
 import store from './store'
 import Vuex from 'vuex'
@@ -37,6 +39,8 @@ const routes = [
   { path: '/Register', name: 'register', component: Register },
   { path: '/User', name: 'user', component: User },
   { path: '/HWsystem', name: 'HWsystem', component: HWsystem },
+  { path: '/Setting', name: 'setting', component: Setting },
+  { path: '/LessonList', name: 'lessonList', component: LessonList },
   { path: "*", component: Index }
 ]
 

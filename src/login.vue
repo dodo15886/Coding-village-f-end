@@ -47,7 +47,9 @@
 </template>
 
 <script>
+
 import axios from "axios";
+import {mapMutations} from "vuex";
 
 export default {
   name: "login",
@@ -61,6 +63,9 @@ export default {
   },
 
   methods: {
+
+    ...mapMutations(['setUsername']),
+
     login() {
       let userData = {
         email: this.email,
@@ -81,9 +86,9 @@ export default {
           .then(({ data }) => {
             if (data) {
               let vm = this;
-              localStorage.setItem("username", data);
-              // location.reload();
-              // BUG: 用localStorage+vuex解決
+
+              vm.setUsername(data); // 用vuex的mutation去操作localStorage
+              
               this.$Modal.success({
                 title: "HI, "+data+"!",
                 content: "暑期營隊熱烈報名中唷",

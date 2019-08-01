@@ -30,20 +30,28 @@
       <Button type="text" style="margin:10px;" @click="childChangePage('consult')">免費諮詢</Button>
     </div>
 
-    <Button
-      v-if="!isLogin"
-      type="text"
-      style="margin:20px"
-      @click="childChangePage('login')"
-    >登入</Button>
-    <div v-else class="user" @click="childChangePage('user')">
-      <Icon type="md-contact" size="25"/>
-      <div style="margin:5px">{{username}}</div>
-    </div>
+    <Button v-if="!username" type="text" style="margin:20px" @click="childChangePage('login')">登入</Button>
+
+    <Dropdown v-else @on-click="childChangePage">
+      <div class="user">
+        <Icon type="md-contact" size="25"/>
+        <div style="margin:5px">{{username}}</div>
+      </div>
+      <DropdownMenu slot="list" placement="bottom-start">
+        <DropdownItem name="HWsystem">作業系統</DropdownItem>
+        <DropdownItem name="setting">帳號設定</DropdownItem>
+        <DropdownItem name="lessonList">課程清單</DropdownItem>
+        <DropdownItem name="logout" divided>登出</DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
   </div>
 </template>
 
 <script>
+
+import { mapGetters } from "vuex";
+import { mapMutations } from "vuex";
+
 export default {
   name: "customHeader",
 
@@ -71,26 +79,34 @@ export default {
   },
 
   methods: {
+    ...mapMutations(['setUsername']),
+
     childChangePage(toWhatPage) {
-      this.$emit("changePage", toWhatPage);
-    },
-  },
-  
-  computed: {
-    isLogin() {
-      this.username = localStorage.getItem("username");
-      if (!this.username) {
-        return false;
+      if (toWhatPage != "logout") {
+        this.$emit("changePage", toWhatPage);
       } else {
-        return true;
+        this.setUsername("");
+        this.$emit("changePage", "index");
+        this.$Message.success("登出了");
       }
+    }
+  },
+
+  computed: {
+    ...mapGetters(["getUsername"]),
+  },
+
+  watch: {
+    //動態監聽state的變化，實時改變頁面的資料
+    getUsername: function(username) {
+      console.log(username);
+      this.username = username; //data宣告一個變數，在html引用。如果storage的值發生變化就實時重新整理變數的值。
     }
   }
 };
 </script>
 
 <style scoped>
-
 #customHeader {
   position: fixed;
   background-color: white;
