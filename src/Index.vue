@@ -43,6 +43,20 @@
       </div>
     </div>
 
+    <div class="whyCodingIntroStruc">
+      <div class="whyCodingIntroTitle">
+        不當工程師，也要會寫程式嗎？
+      </div>
+      <div class="whyCodingIntro">
+        <p>程式是一種幫您解決問題的工具</p>
+        <p>CodingVillage是透過程式培養解決問題的能力</p>
+        <p>我們反對填鴨式的高速教學</p>
+        <p>也不偏重證照考取等功利導向</p>
+        <p>而是如同108課綱的核心理念</p>
+        <p>培養關鍵核心素養</p>
+      </div>
+    </div>
+
     <div class="lessonHeader">
       <div class="blank"></div>
       <div id="lessonHeaderText">常態課程</div>
@@ -68,7 +82,12 @@
           <div class="warriorContent">
             <p>新手村 Python：熟悉程式語言</p>
             <p>適合對象：12歲以上，想嘗試寫寫看程式者。</p>
-            <Button type="success" class="interestBtn" @click="showDetail('python')" size="large">了解更多</Button>
+            <Button
+              type="success"
+              class="interestBtn"
+              @click="showDetail('python')"
+              size="large"
+            >了解更多</Button>
           </div>
         </div>
 
@@ -96,7 +115,7 @@
             <p>高手村 C++：成為頂尖高手必備絕技</p>
             <p>適合對象：15歲以上，將來想往理工科系發展者。</p>
             <Button class="interestBtn" @click="showDetail('cPlusPlus')" size="large" disabled>即將推出</Button>
-          </div> 
+          </div>
         </div>
 
         <div id="apcs" class="content">
@@ -107,7 +126,6 @@
             <Button class="interestBtn" @click="showDetail('apcs')" size="large" disabled>即將推出</Button>
           </div>
         </div>
-
       </div>
     </div>
   </div>
@@ -130,7 +148,7 @@ export default {
 
   mounted() {
     let vm = this;
-    
+
     const d = 60;
     this.pythonPosition = document.getElementById("python").offsetTop - d;
     this.webPosition = document.getElementById("web").offsetTop - d;
@@ -244,6 +262,32 @@ export default {
   height: 5vw;
 }
 
+.whyCodingIntroStruc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;  
+}
+
+.whyCodingIntroTitle {
+  border-bottom: 2px solid rgb(218, 227, 234);
+  margin-bottom: 30px;
+  font-size: 30px;
+  font-weight: bolder;
+}
+
+.whyCodingIntro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.whyCodingIntro > p {
+  margin:10px;
+  font-size: 20px;
+}
+
 .rightClassStruc {
   display: flex;
   flex-direction: column;
@@ -281,7 +325,7 @@ export default {
 .leftBlank {
   display: flex;
   justify-content: center;
-  align-items: center; 
+  align-items: center;
   /* margin-top: 10vw; */
   width: 250px;
   height: 400px;
@@ -313,7 +357,7 @@ export default {
 .content {
   display: flex;
   justify-content: space-between;
-  border:3px solid rgb(218, 227, 234);
+  border: 3px solid rgb(218, 227, 234);
   position: relative;
   height: 400px;
   width: 70vw;

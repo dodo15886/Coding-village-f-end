@@ -3,15 +3,18 @@ import MainApp from './MainApp.vue'
 import Login from './login.vue'
 import Register from './register.vue'
 import Index from './Index.vue'
-import User from './user.vue'
 import Consult from './consult.vue'
 import Member from './member.vue'
+
 import Python from './components/pythonDetail.vue'
 import CPlusPlus from './components/cPlusPlusDetail.vue'
 import Web from './components/webDetail.vue'
 import App from './components/appDetail.vue'
 import APCS from './components/apcsDetail.vue'
-import HWsystem from './HWsystem.vue'
+
+import MainPage from './HWsystem/mainPage.vue'
+import HWsubmit from './HWsystem/HWsubmit.vue'
+
 import Setting from './userPage/setting.vue'
 import LessonList from './userPage/lessonList.vue'
 
@@ -37,10 +40,10 @@ const routes = [
   { path: '/APCS', name: 'apcs', component: APCS },
   { path: '/Login', name: 'login', component: Login },
   { path: '/Register', name: 'register', component: Register },
-  { path: '/User', name: 'user', component: User },
-  { path: '/HWsystem', name: 'HWsystem', component: HWsystem },
+  { path: '/MainPage', name: 'mainPage', component: MainPage },
   { path: '/Setting', name: 'setting', component: Setting },
   { path: '/LessonList', name: 'lessonList', component: LessonList },
+  { path: '/HWsubmit', name: 'HWsubmit', component: HWsubmit },
   { path: "*", component: Index }
 ]
 

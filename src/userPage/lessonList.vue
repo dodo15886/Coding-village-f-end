@@ -69,7 +69,7 @@ export default {
 
   methods: {
     toReviewLesson() {
-        this.$Message.success("複習課正在開發！");
+      this.$Message.success("複習課正在開發！");
     }
   },
 

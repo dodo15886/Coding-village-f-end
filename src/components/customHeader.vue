@@ -38,7 +38,7 @@
         <div style="margin:5px">{{username}}</div>
       </div>
       <DropdownMenu slot="list" placement="bottom-start">
-        <DropdownItem name="HWsystem">作業系統</DropdownItem>
+        <DropdownItem name="mainPage">作業系統</DropdownItem>
         <DropdownItem name="setting">帳號設定</DropdownItem>
         <DropdownItem name="lessonList">課程清單</DropdownItem>
         <DropdownItem name="logout" divided>登出</DropdownItem>
