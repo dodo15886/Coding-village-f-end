@@ -51,7 +51,12 @@
             </Card>
           </div>
         </div>
-        <Button class="btn" type="primary" target="_blank" to="https://docs.google.com/forms/d/1uki5ilme7mPnoeiZ8s5JOyyPotnYkSAJ87sP6zA_ZaE/edit?usp=sharing">報名</Button>
+        <Button
+          class="btn"
+          type="primary"
+          target="_blank"
+          to="https://docs.google.com/forms/d/1uki5ilme7mPnoeiZ8s5JOyyPotnYkSAJ87sP6zA_ZaE/edit?usp=sharing"
+        >報名</Button>
       </div>
     </div>
   </div>
@@ -61,9 +66,8 @@
 import axios from "axios";
 
 export default {
-
   name: "consult",
-  
+
   data() {
     return {
       lessonList: [
@@ -112,31 +116,33 @@ export default {
           lesson: this.selectedLesson,
           question: this.question
         };
-        axios
-          .post(this.localhostUrl + "/advice", userAdvice)
-          .then(({ data }) => {
-            if (data) {
-              // write in excel successfully
-              this.name = "";
-              this.email = "";
-              this.selectedLesson = "";
-              this.question = "";
-              this.$Message.success("提交成功！謝謝您的建議，會盡快回覆您。");
-            } else {
-              this.$Message.error("輸入失敗，伺服器有問題，請稍後再試！");
-            }
-          })
-          .catch(err => {
-            console.log(err);
-            this.$Message.error("輸入失敗，伺服器有問題，請稍後再試！");
-          });
+        this.$Message.success("提交成功！謝謝您的建議，會盡快回覆您。");
+
+        // axios
+        // .post(this.localhostUrl + "/advice", userAdvice)
+        // .then(({ data }) => {
+        //   if (data) {
+        //     // write in excel successfully
+        //     this.name = "";
+        //     this.email = "";
+        //     this.selectedLesson = "";
+        //     this.question = "";
+        //     this.$Message.success("提交成功！謝謝您的建議，會盡快回覆您。");
+        //   } else {
+        //     this.$Message.error("輸入失敗，伺服器有問題，請稍後再試！");
+        //   }
+        // })
+        // .catch(err => {
+        //   console.log(err);
+        //   this.$Message.error("輸入失敗，伺服器有問題，請稍後再試！");
+        // });
       }
     }
   },
 
   created() {
     this.localhostUrl = this.$store.state.localhostUrl;
-  },
+  }
 };
 </script>
 

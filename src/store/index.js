@@ -4,7 +4,8 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 const state = {
-  localhostUrl: "http://172.20.10.5:3000",
+  localhostUrl: "https://codingvillage.herokuapp.com",
+  // localhostUrl: "http://localhost:3000",
   username: ""
 };
 

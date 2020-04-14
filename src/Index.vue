@@ -2,8 +2,6 @@
   <div id="index">
     <div class="guidePage">
       <img src="@/assets/cover.jpg" width="100%">
-      <div id="introName">Coding Village</div>
-      <div id="introQuote">用邏輯漫步在程式的世界裡</div>
       <div class="guideBtnStruc">
         <Button
           @click="changeState(pythonPosition)"

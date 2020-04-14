@@ -5,7 +5,7 @@
     <div style="background:#eee;padding: 20px; width:800px">
       <Card :bordered="false">
         <p slot="title" style="font-size: 17px;">{{title}}</p>
-        <p>{{question}}</p>
+        <p style="line-height: 30px;">{{question}}</p>
       </Card>
     </div>
 
@@ -38,20 +38,24 @@
       </Card>
     </div>
 
-    <Card class="showHWcard">{{HWcontent}}</Card>
+    <!-- <Card class="showHWcard">{{HWcontent}}</Card> -->
 
     <div class="HWBtnStruc">
       <div class="uploadStruc">
-        <Upload :before-upload="handleUpload" action="//jsonplaceholder.typicode.com/posts/">
-          <Button icon="ios-cloud-upload-outline" type="primary">選擇檔案</Button>
+        <Upload
+          action="//jsonplaceholder.typicode.com/posts/"
+          :format="HWformat"
+          :on-format-error="handleFormatError"
+        >
+          <Button icon="ios-cloud-upload-outline" type="primary">繳交作業</Button>
         </Upload>
-        <div v-if="file !== null" id="uploadName">{{file.name}}</div>
+        <!-- <div v-if="file !== null" id="uploadName">{{file.name}}</div> -->
       </div>
-      <Button
+      <!-- <Button
         @click="upload"
         type="primary"
         :disabled="file === null"
-      >{{ loadingStatus ? '上傳中...' : '繳交作業' }}</Button>
+      >{{ loadingStatus ? '上傳中...' : '繳交作業' }}</Button> -->
     </div>
   </div>
 </template>
@@ -75,6 +79,7 @@ export default {
       outputFormat:
         "輸出輸入字串中滿足 k-交錯字串的要求的最長一段連續子字串的長度，以換行結尾。",
       HWcontent: "（上傳檔案預覽）",
+      HWformat: ['py'],
       example: [
         {
           number: 1,
@@ -106,12 +111,20 @@ export default {
     handleUpload(file) {
       this.file = file;
       this.HWcontent = this.file.name;
+      console.log(file);
       return false;
+    },
+
+    handleFormatError() {
+        this.$Message.warning("檔名錯誤");
     },
 
     upload() {
       this.loadingStatus = true;
+
       setTimeout(() => {
+        this.progress();
+        this.success();
         this.file = null;
         this.HWcontent = "（上傳檔案預覽）";
         this.loadingStatus = false;
@@ -122,7 +135,14 @@ export default {
 
   created() {
     this.language = this.$route.params.id.lang;
-    console.log(this.$route.params.id);
+    if (this.language == 'python') {
+      this.HWformat.push('py');
+    } else if (this.language == 'c++') {
+      this.HWformat.push('cpp');   
+    } else if (this.language == 'APCS') {
+      this.HWformat.push('py');
+      this.HWformat.push('cpp');      
+    }
   }
 };
 </script>

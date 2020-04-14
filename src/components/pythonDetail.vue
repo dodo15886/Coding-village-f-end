@@ -30,43 +30,43 @@
       <div class="lessonDetail">
         <div class="detail">
           <DateTag day="17" month="Aug"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元A Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="24" month="Aug"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元B Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="31" month="Aug"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="07" month="Sep"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="21" month="Sep"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="28" month="Sep"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="19" month="Oct"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="26" month="Oct"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="02" month="Nov"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
         <div class="detail">
           <DateTag day="09" month="Nov"></DateTag>
-          <div class="detailContent">先修單元A micro:bit基礎：燈號控制與動畫</div>
+          <div class="detailContent">先修單元C Python介紹</div>
         </div>
       </div>
     </div>
@@ -108,10 +108,10 @@
         </div>
         <div class="lessonPlanContent">
           <div class="planHeader">
-            入門者:Python入門（豪華包）
+            入門者:Python入門（頂級包）
             <div class="planPrice">
               NT.
-              <div class="price">$12,500</div>
+              <div class="price">$16,500</div>
             </div>
           </div>
           <div class="planContent">

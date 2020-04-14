@@ -109,7 +109,6 @@ export default {
         lang = "APCS";
         ques = this.apcsChoosed;
       }
-      console.log(lang, ques)
       this.$router.push({
         name: "HWsubmit",
         params: {
